@@ -39,6 +39,7 @@ When running with maven you can generally change the behaviour of the applicatio
 
 You can either build and run the app from source:
 - Clone the project
+- cd into the cloned directory
 - Run `mvn spring-boot:run`
 
 Or run the app using the pre-built and packaged JAR file available under Releases.
