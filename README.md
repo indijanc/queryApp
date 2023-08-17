@@ -29,10 +29,10 @@ Clone the project, run `mvn spring-boot:run` and off you go! But read on for som
 ### Configuration
 
 When running with maven you can generally change the behaviour of the application using it's [application.yaml](/src/main/resources/application.yaml) file. The useful options are:
-- Location of the database
+- Location of the database (default: ./data/telemetry)
 - Enabling or disabling DB queries over a simple in-browser console
 - Setting DB credentials
-- Location of embedded Tomcat temporary files
+- Location of embedded Tomcat temporary files (default: ./tomcat)
 - Enabling or disabling the GraphiQL testing console
 
 ### Running the Project
@@ -49,6 +49,7 @@ After initialization, the application will start listening on port 8080, accessi
 3. Run some queries. A good way to run queries against the provided endpoint `/graphql` is to use the Browser based [GraphiQL UI](http://localhost:8080/graphiql)
 
 Here are some example queries:
+
 Get all vehicles location and speed data
 ```
 {

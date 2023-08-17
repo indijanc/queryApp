@@ -21,8 +21,9 @@ import java.util.List;
 import static com.indijanc.queryApp.data.model.VehicleTelemetry.DATETIME_FORMAT;
 
 /**
- * Helper class for building the JPA specification from the filters
+ * Service class for inserting the CSV data to the database
  */
+// TODO: Refactor this, use builder class or similar instead
 @Service
 public class CsvVehicleTelemetryInsertionService {
     private static final Logger log = LoggerFactory.getLogger(CsvVehicleTelemetryInsertionService.class);
