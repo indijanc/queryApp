@@ -1,7 +1,10 @@
 HELP.md
 target/
-tomcat/
-data/
+
+# ignore only first level folders "data" and "tomcat"
+/data/
+/tomcat/
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
