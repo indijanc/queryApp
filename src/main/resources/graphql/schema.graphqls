@@ -1,0 +1,151 @@
+type Query {
+    "Basic query with the optional filtering"
+    telemetry(filter: TelemetryFilter): [Telemetry]
+
+    "Query by vehicle serial number - testing"
+    telemetryBySerialNumber(serialNumber: ID!): [Telemetry]
+}
+
+"Telemetry type for all vehicles telemetry data"
+type Telemetry {
+    dateTime: String
+    serialNumber: ID
+    gpsLongitude: Float
+    gpsLatitude: Float
+    totalWorkingHours: Float
+    groundSpeed: Float
+    engineSpeed: Int
+    engineLoad: Float
+    drumSpeed: Int
+    fanSpeed: Int
+    strawWalkerSpeed: Int
+    separationLosses: Float
+    sieveLosses: Float
+    chopper: String
+    tankLevel: Float
+    partialWidthsCount: Int
+    frontAttachment: String
+    partialWidthsMaxCount: Int
+    feedRakeSpeed: Float
+    workingPosition: String
+    grainTankUnloading: String
+    mainDriveStatus: String
+    concavePos: Int
+    upperSievePos: Int
+    lowerSievePos: Int
+    grainTank70: String
+    grainTank100: String
+    grainMoistureContent: Float
+    throughput: Float
+    radialSpreaderSpeed: String
+    grainInReturns: Float
+    channelPos: Float
+    yieldMeasurement: String
+    returnsAugerMeasurement: Float
+    moistureMeasurement: String
+    typeOfCrop: String
+    specificCropWeight: Float
+    autoPilotStatus: String
+    cruisePilotStatus: String
+    rateOfWork: Float
+    yield: Float
+    quantimeterCalibrationFactor: Float
+    separationSensitivity: Float
+    sieveSensitivity: Float
+    fuelConsumption: Float
+    coolantTemperature: Float
+    groundSpeedRadar: String
+    speedFrontPto: Float
+    speedRearPto: Float
+    currentGearShift: Int
+    ambientTemperature: Float
+    parkingBreakStatus: Int
+    transverseDifferentialLockStatus: Int
+    allWheelDriveStatus: String
+    actualStatusOfCreeper: String
+}
+
+"Filter for the Telemetry type"
+input TelemetryFilter {
+    serialNumberFilter: StringFilter
+    gpsLongitudeFilter: FloatFilter
+    gpsLatitudeFilter: FloatFilter
+    totalWorkingHoursFilter: FloatFilter
+    groundSpeedFilter: FloatFilter
+    engineSpeedFilter: IntFilter
+    engineLoadFilter: FloatFilter
+    drumSpeedFilter: IntFilter
+    fanSpeedFilter: IntFilter
+    strawWalkerSpeedFilter: IntFilter
+    separationLossesFilter: FloatFilter
+    sieveLossesFilter: FloatFilter
+    chopperFilter: StringFilter
+    tankLevelFilter: FloatFilter
+    partialWidthsCountFilter: IntFilter
+    frontAttachmentFilter: StringFilter
+    partialWidthsMaxCountFilter: IntFilter
+    feedRakeSpeedFilter: FloatFilter
+    workingPositionFilter: StringFilter
+    grainTankUnloadingFilter: StringFilter
+    mainDriveStatusFilter: StringFilter
+    concavePosFilter: IntFilter
+    upperSievePosFilter: IntFilter
+    lowerSievePosFilter: IntFilter
+    grainTank70Filter: StringFilter
+    grainTank100Filter: StringFilter
+    grainMoistureContentFilter: FloatFilter
+    throughputFilter: FloatFilter
+    radialSpreaderSpeedFilter: StringFilter
+    grainInReturnsFilter: FloatFilter
+    channelPosFilter: FloatFilter
+    yieldMeasurementFilter: StringFilter
+    returnsAugerMeasurementFilter: FloatFilter
+    moistureMeasurementFilter: StringFilter
+    typeOfCropFilter: StringFilter
+    specificCropWeightFilter: FloatFilter
+    autoPilotStatusFilter: StringFilter
+    cruisePilotStatusFilter: StringFilter
+    rateOfWorkFilter: FloatFilter
+    yieldFilter: FloatFilter
+    quantimeterCalibrationFactorFilter: FloatFilter
+    separationSensitivityFilter: FloatFilter
+    sieveSensitivityFilter: FloatFilter
+    fuelConsumptionFilter: FloatFilter
+    coolantTemperatureFilter: FloatFilter
+    groundSpeedRadarFilter: StringFilter
+    speedFrontPtoFilter: FloatFilter
+    speedRearPtoFilter: FloatFilter
+    currentGearShiftFilter: IntFilter
+    ambientTemperatureFilter: FloatFilter
+    parkingBreakStatusFilter: IntFilter
+    transverseDifferentialLockStatusFilter: IntFilter
+    allWheelDriveStatusFilter: StringFilter
+    actualStatusOfCreeperFilter: StringFilter
+}
+
+"Filter for String fields"
+input StringFilter {
+    "Filter for values that contain the string"
+    contains: String
+
+    "Filter for values that are equal to provided string"
+    equals: String
+}
+
+"Filter for Float fields"
+input FloatFilter {
+    "Greater than or equal"
+    gte: Float
+
+    "Less than"
+    lt: Float
+}
+
+"Filter for Int fields"
+input IntFilter {
+    "Greater than or equal"
+    gte: Int
+
+    "Less than"
+    lt: Int
+}
