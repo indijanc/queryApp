@@ -5,6 +5,10 @@ import java.util.List;
 
 import static com.indijanc.queryApp.data.model.FieldName.*;
 
+/**
+ * CLass is used for binding to an incoming request that includes the filter parameter.
+ * It's a collection of per-field filters.
+ */
 public class TelemetryFilter {
     List<FieldFilter> allFieldFilters = new ArrayList<>();
 

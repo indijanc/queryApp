@@ -1,5 +1,8 @@
 package com.indijanc.queryApp.controller;
 
+/**
+ * Generic response used for controller ok and error statuses
+ */
 public class GenericResponse {
     private int status;
     private String error;

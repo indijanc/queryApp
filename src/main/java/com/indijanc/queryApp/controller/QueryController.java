@@ -14,6 +14,9 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+/**
+ * Controller for the GraphQL query.
+ */
 @Controller
 public class QueryController {
 
@@ -43,7 +46,14 @@ public class QueryController {
         return retList;
     }
 
-    // More investigation needed to possibly simplify this or make it more elegant with QueryDsl
+    /**
+     * Method is used to translate the input filter definition into a specification for data retrieval
+     *
+     * @param filter Collection of filters from the GraphQL query
+     * @return Specification<VehicleTelemetrz> specification for data retrieval
+     */
+    // TODO: More investigation needed to possibly simplify this or make it more elegant with QueryDsl
+    // TODO: Possibly push this to a service class
     private Specification<VehicleTelemetry> buildFilterSpecification(TelemetryFilter filter) {
         Specification<VehicleTelemetry> spec = Specification.where(null);
         for (FieldFilter fieldFilter : filter.getAllFieldFilters()) {

@@ -20,6 +20,9 @@ import java.util.List;
 
 import static com.indijanc.queryApp.data.model.VehicleTelemetry.DATETIME_FORMAT;
 
+/**
+ * Helper class for building the JPA specification from the filters
+ */
 @Service
 public class CsvVehicleTelemetryInsertionService {
     private static final Logger log = LoggerFactory.getLogger(CsvVehicleTelemetryInsertionService.class);
@@ -64,7 +67,7 @@ public class CsvVehicleTelemetryInsertionService {
                 insertList.add(new VehicleTelemetry(LocalDateTime.parse(record.get(0), DateTimeFormatter.ofPattern(DATETIME_FORMAT)),
                         record.get(1), cleanFloat(record.get(2)), cleanFloat(record.get(3)),
                         cleanFloat(record.get(4)), cleanInt(record.get(5)), cleanFloat(record.get(6)),
-                        cleanFloat(record.get(7)), cleanFloat(record.get(8)), record.get(9), cleanFloat(record.get(10)),
+                        cleanFloat(record.get(7)), cleanFloat(record.get(8)), record.get(9), cleanInt(record.get(10)),
                         cleanFloat(record.get(11)), cleanFloat(record.get(12)), cleanInt(record.get(13)),
                         cleanFloat(record.get(14)), cleanInt(record.get(15)), cleanInt(record.get(16)), record.get(17),
                         record.get(18)));
@@ -77,23 +80,23 @@ public class CsvVehicleTelemetryInsertionService {
         return insertList.size();
     }
 
-    private float cleanFloat(String inputStr) {
+    private Float cleanFloat(String inputStr) {
         try {
             return Float.parseFloat(inputStr);
         }
         catch (NumberFormatException e) {
             log.warn("Failed to convert to float: {}", inputStr);
-            return 0;
+            return null;
         }
     }
 
-    private int cleanInt(String inputStr) {
+    private Integer cleanInt(String inputStr) {
         try {
             return Integer.parseInt(inputStr);
         }
         catch (NumberFormatException e) {
             log.warn("Failed to convert to int: {}", inputStr);
-            return 0;
+            return null;
         }
     }
 }

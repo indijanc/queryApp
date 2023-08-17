@@ -15,6 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileNotFoundException;
 
+/**
+ * Controller for uploading telemetry data.
+ */
 @Controller
 @RequestMapping("/telemetry")
 public class TelemetryUploadController {
