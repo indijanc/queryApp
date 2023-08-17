@@ -24,7 +24,7 @@ Clone the project, run `mvn spring-boot:run` and off you go! But read on for som
 ### Prerequisites
 
 - Java 11+
-- Maven 3.5.0+
+- Maven 3.5.0+ (if running with Maven)
 
 ### Configuration
 
