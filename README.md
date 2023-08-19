@@ -146,7 +146,7 @@ Get all entries for a specific vehicle when engine was running at 1975 rpm
 }
 ```
 
-Try other queries using the console autocomplete features.
+Try other queries using the console autocomplete features. Results are always ordered by time in a descendint manner.
 
 ## Todo List
 

@@ -4,10 +4,19 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDateTime;
 
+import static com.indijanc.queryApp.data.model.FieldName.DATE_TIME;
+
 /**
  * Helper class for building the JPA specification from the filters
  */
 public class VehicleTelemetrySpecification {
+    public static Specification<VehicleTelemetry> orderByDateTimeDesc() {
+        return (root, query, builder) -> {
+            query.orderBy(builder.desc(root.get(DATE_TIME)));
+            return null;
+        };
+    }
+
     public static Specification<VehicleTelemetry> stringKeyContains(String key, String value) {
         return (root, query, builder) -> builder.like(root.get(key), "%" + value + "%");
     }

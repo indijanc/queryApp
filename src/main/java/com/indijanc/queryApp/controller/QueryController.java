@@ -47,7 +47,8 @@ public class QueryController {
     // TODO: More investigation needed to possibly simplify this or make it more elegant with QueryDsl
     // TODO: Possibly push this to a service class
     private Specification<VehicleTelemetry> buildFilterSpecification(TelemetryFilter filter) {
-        Specification<VehicleTelemetry> spec = Specification.where(null);
+        Specification<VehicleTelemetry> spec = VehicleTelemetrySpecification.orderByDateTimeDesc();
+
         for (FieldFilter fieldFilter : filter.getAllFieldFilters()) {
 
             if (fieldFilter instanceof StringFilter) {
