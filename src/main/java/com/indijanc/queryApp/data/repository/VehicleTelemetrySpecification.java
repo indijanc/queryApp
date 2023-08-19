@@ -1,5 +1,6 @@
-package com.indijanc.queryApp.data.model;
+package com.indijanc.queryApp.data.repository;
 
+import com.indijanc.queryApp.data.model.VehicleTelemetry;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDateTime;

@@ -1,13 +1,10 @@
 package com.indijanc.queryApp.controller.filter;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class FieldFilter {
     private String fieldName;
-
-    public String getFieldName() {
-        return fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
 }

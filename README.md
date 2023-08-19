@@ -152,7 +152,6 @@ Try other queries using the console autocomplete features. Results are always or
 
 A list of tasks, refactoring and improvements planned to implement.
 
-- Improve data insertion mechanism, current one is quick, dirty and fragile
 - Fix float precision, float insertion doesn't work well, can we live with rounding?
 - Investigate the provided data, determine boolean values
 - Error handling for GraphQL errors

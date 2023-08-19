@@ -13,30 +13,33 @@ public class CustomControllerAdvice {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException ex) {
-        GenericResponse genericResponse = GenericResponse.create()
-                .withStatus(HttpStatus.BAD_REQUEST.value())
-                .withMessage("Data integrity violation")
-                .withError("Unique index, primary key, or database constraint violation");
+        GenericResponse genericResponse = GenericResponse.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .message("Data integrity violation")
+                .error("Unique index, primary key, or database constraint violation")
+                .build();
 
         return ResponseEntity.badRequest().body(genericResponse);
     }
 
     @ExceptionHandler(FileNotFoundException.class)
     public ResponseEntity<Object> handleFileUploadError(FileNotFoundException ex) {
-        GenericResponse genericResponse = GenericResponse.create()
-                .withStatus(HttpStatus.BAD_REQUEST.value())
-                .withMessage("Invalid file")
-                .withError(ex.getMessage());
+        GenericResponse genericResponse = GenericResponse.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .message("Invalid file")
+                .error(ex.getMessage())
+                .build();
 
         return ResponseEntity.badRequest().body(genericResponse);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleAccessDeniedException(Exception ex) {
-        GenericResponse genericResponse = GenericResponse.create()
-                .withStatus(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                .withMessage("An error occurred")
-                .withError(ex.getMessage());
+    public ResponseEntity<Object> handleException(Exception ex) {
+        GenericResponse genericResponse = GenericResponse.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .message("An error occurred")
+                .error(ex.getMessage())
+                .build();
 
         return ResponseEntity.internalServerError().body(genericResponse);
     }

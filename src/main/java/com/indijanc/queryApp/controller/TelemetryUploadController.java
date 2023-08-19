@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
-
 /**
  * Controller for uploading telemetry data.
  */
@@ -30,20 +28,11 @@ public class TelemetryUploadController {
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<GenericResponse> uploadTelemetry(@RequestParam("file") MultipartFile file) throws Exception {
         log.info("Received file named {} with size {}", file.getOriginalFilename(), file.getSize());
-        int insertedEntries;
-        if (file.getOriginalFilename().startsWith("LD_C")) {
-            insertedEntries = csvVehicleTelemetryInsertionService.insertTractorData(file);
-        }
-        else if (file.getOriginalFilename().startsWith("LD_A")) {
-            insertedEntries = csvVehicleTelemetryInsertionService.insertCombineData(file);
-        }
-        else {
-            // Abusing the FileNotFoundException, create your own specific exception
-            throw new FileNotFoundException("Unrecognized file. Upload tractor or combine data, must start with LD_A or LD_C respectively!");
-        }
+        int insertedEntries = csvVehicleTelemetryInsertionService.insertVehicleData(file);
 
-        return ResponseEntity.ok(GenericResponse.create()
-                .withStatus(HttpStatus.OK.value())
-                .withMessage("Inserted " + Integer.toString(insertedEntries) + " entries"));
+        return ResponseEntity.ok(GenericResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Inserted " + Integer.toString(insertedEntries) + " entries")
+                .build());
     }
 }

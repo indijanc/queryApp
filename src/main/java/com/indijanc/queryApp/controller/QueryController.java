@@ -2,7 +2,7 @@ package com.indijanc.queryApp.controller;
 
 import com.indijanc.queryApp.controller.filter.*;
 import com.indijanc.queryApp.data.model.VehicleTelemetry;
-import com.indijanc.queryApp.data.model.VehicleTelemetrySpecification;
+import com.indijanc.queryApp.data.repository.VehicleTelemetrySpecification;
 import com.indijanc.queryApp.data.repository.VehicleTelemetryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
