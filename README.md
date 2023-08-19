@@ -64,11 +64,12 @@ Get all vehicles location and speed data
 }
 ```
 
-Get sieve data from all combines (assuming combine is identified with a serial number containing 'C')
+Get sieve data from all combines within a time range (assuming combine is identified with a serial number containing 'C')
 ```
 {
   telemetry(filter: {
     serialNumberFilter: { contains: "C" }
+    dateTimeFilter: {gte: "2022-11-14T10:03:46", lt:"2022-11-14T10:04:31"}
   }) {
     dateTime
     sieveLosses
@@ -151,7 +152,6 @@ Try other queries using the console autocomplete features.
 
 A list of tasks, refactoring and improvements planned to implement.
 
-- Create a proper filter for dateTime
 - Improve data insertion mechanism, current one is quick, dirty and fragile
 - Fix float precision, float insertion doesn't work well, can we live with rounding?
 - Investigate the provided data, determine boolean values

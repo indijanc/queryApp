@@ -13,12 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
-import static com.indijanc.queryApp.data.model.VehicleTelemetry.DATETIME_FORMAT;
+import static com.indijanc.queryApp.utility.ParseUtil.*;
 
 /**
  * Service class for inserting the CSV data to the database
@@ -35,22 +33,22 @@ public class CsvVehicleTelemetryInsertionService {
 
         try (CSVParser parser = new CSVParser(new InputStreamReader(file.getInputStream()), CSVFormat.DEFAULT.withDelimiter(';').withFirstRecordAsHeader())) {
             for (CSVRecord record : parser) {
-                insertList.add(new VehicleTelemetry(LocalDateTime.parse(record.get(0), DateTimeFormatter.ofPattern(DATETIME_FORMAT)),
-                        record.get(1), cleanFloat(record.get(2)), cleanFloat(record.get(3)),
-                        cleanFloat(record.get(4)), cleanFloat(record.get(5)), cleanInt(record.get((6))),
-                        cleanFloat(record.get(7)), cleanInt(record.get((8))),
-                        cleanInt(record.get((9))), cleanInt(record.get((10))),
-                        cleanFloat(record.get(11)), cleanFloat(record.get(12)), record.get(13),
-                        cleanFloat(record.get(14)), cleanInt(record.get((15))), record.get(16),
-                        cleanInt(record.get((17))), cleanFloat(record.get(18)), record.get(19),
-                        record.get(20), record.get(21), cleanInt(record.get((22))),
-                        cleanInt(record.get((23))), cleanInt(record.get((24))), record.get(25),
-                        record.get(26), cleanFloat(record.get(27)), cleanFloat(record.get(28)),
-                        record.get(29), cleanFloat(record.get(30)), cleanFloat(record.get(31)),
-                        record.get(32), cleanFloat(record.get(33)), record.get(34), record.get(35),
-                        cleanFloat(record.get(36)), record.get(37), record.get(38), cleanFloat(record.get(39)),
-                        cleanFloat(record.get(40)), cleanFloat(record.get(41)), cleanFloat(record.get(42)),
-                        cleanFloat(record.get(43))));
+                insertList.add(new VehicleTelemetry(parseDateTime(record.get(0)),
+                        record.get(1), parseFloatOrNull(record.get(2)), parseFloatOrNull(record.get(3)),
+                        parseFloatOrNull(record.get(4)), parseFloatOrNull(record.get(5)), parseIntOrNull(record.get((6))),
+                        parseFloatOrNull(record.get(7)), parseIntOrNull(record.get((8))),
+                        parseIntOrNull(record.get((9))), parseIntOrNull(record.get((10))),
+                        parseFloatOrNull(record.get(11)), parseFloatOrNull(record.get(12)), record.get(13),
+                        parseFloatOrNull(record.get(14)), parseIntOrNull(record.get((15))), record.get(16),
+                        parseIntOrNull(record.get((17))), parseFloatOrNull(record.get(18)), record.get(19),
+                        record.get(20), record.get(21), parseIntOrNull(record.get((22))),
+                        parseIntOrNull(record.get((23))), parseIntOrNull(record.get((24))), record.get(25),
+                        record.get(26), parseFloatOrNull(record.get(27)), parseFloatOrNull(record.get(28)),
+                        record.get(29), parseFloatOrNull(record.get(30)), parseFloatOrNull(record.get(31)),
+                        record.get(32), parseFloatOrNull(record.get(33)), record.get(34), record.get(35),
+                        parseFloatOrNull(record.get(36)), record.get(37), record.get(38), parseFloatOrNull(record.get(39)),
+                        parseFloatOrNull(record.get(40)), parseFloatOrNull(record.get(41)), parseFloatOrNull(record.get(42)),
+                        parseFloatOrNull(record.get(43))));
             }
 
             log.info("inserting {} tractor entries", insertList.size());
@@ -65,12 +63,12 @@ public class CsvVehicleTelemetryInsertionService {
 
         try (CSVParser parser = new CSVParser(new InputStreamReader(file.getInputStream()), CSVFormat.DEFAULT.withDelimiter(';').withFirstRecordAsHeader())) {
             for (CSVRecord record : parser) {
-                insertList.add(new VehicleTelemetry(LocalDateTime.parse(record.get(0), DateTimeFormatter.ofPattern(DATETIME_FORMAT)),
-                        record.get(1), cleanFloat(record.get(2)), cleanFloat(record.get(3)),
-                        cleanFloat(record.get(4)), cleanInt(record.get(5)), cleanFloat(record.get(6)),
-                        cleanFloat(record.get(7)), cleanFloat(record.get(8)), record.get(9), cleanInt(record.get(10)),
-                        cleanFloat(record.get(11)), cleanFloat(record.get(12)), cleanInt(record.get(13)),
-                        cleanFloat(record.get(14)), cleanInt(record.get(15)), cleanInt(record.get(16)), record.get(17),
+                insertList.add(new VehicleTelemetry(parseDateTime(record.get(0)),
+                        record.get(1), parseFloatOrNull(record.get(2)), parseFloatOrNull(record.get(3)),
+                        parseFloatOrNull(record.get(4)), parseIntOrNull(record.get(5)), parseFloatOrNull(record.get(6)),
+                        parseFloatOrNull(record.get(7)), parseFloatOrNull(record.get(8)), record.get(9), parseIntOrNull(record.get(10)),
+                        parseFloatOrNull(record.get(11)), parseFloatOrNull(record.get(12)), parseIntOrNull(record.get(13)),
+                        parseFloatOrNull(record.get(14)), parseIntOrNull(record.get(15)), parseIntOrNull(record.get(16)), record.get(17),
                         record.get(18)));
             }
 
@@ -79,25 +77,5 @@ public class CsvVehicleTelemetryInsertionService {
             vehicleTelemetryRepository.saveAll(insertList);
         }
         return insertList.size();
-    }
-
-    private Float cleanFloat(String inputStr) {
-        try {
-            return Float.parseFloat(inputStr);
-        }
-        catch (NumberFormatException e) {
-            log.warn("Failed to convert to float: {}", inputStr);
-            return null;
-        }
-    }
-
-    private Integer cleanInt(String inputStr) {
-        try {
-            return Integer.parseInt(inputStr);
-        }
-        catch (NumberFormatException e) {
-            log.warn("Failed to convert to int: {}", inputStr);
-            return null;
-        }
     }
 }

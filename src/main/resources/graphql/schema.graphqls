@@ -1,9 +1,6 @@
 type Query {
     "Basic query with the optional filtering"
     telemetry(filter: TelemetryFilter): [Telemetry]
-
-    "Query by vehicle serial number - testing"
-    telemetryBySerialNumber(serialNumber: ID!): [Telemetry]
 }
 
 "Telemetry type for all vehicles telemetry data"
@@ -67,6 +64,7 @@ type Telemetry {
 
 "Filter for the Telemetry type"
 input TelemetryFilter {
+    dateTimeFilter: DateTimeFilter
     serialNumberFilter: StringFilter
     gpsLongitudeFilter: FloatFilter
     gpsLatitudeFilter: FloatFilter
@@ -148,4 +146,13 @@ input IntFilter {
 
     "Less than"
     lt: Int
+}
+
+"Filter for DateTime fields"
+input DateTimeFilter {
+    "Greater than or equal"
+    gte: String
+
+    "Less than"
+    lt: String
 }

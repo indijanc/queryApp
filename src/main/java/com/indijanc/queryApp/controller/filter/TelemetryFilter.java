@@ -12,6 +12,7 @@ import static com.indijanc.queryApp.data.model.FieldName.*;
 public class TelemetryFilter {
     List<FieldFilter> allFieldFilters = new ArrayList<>();
 
+    public FieldFilter getDateTimeFilter() { return filterLookup(DATE_TIME); }
     public FieldFilter getSerialNumberFilter() { return filterLookup(SERIAL_NUMBER); }
     public FieldFilter getGroundSpeedFilter() { return filterLookup(GROUND_SPEED); }
     public FieldFilter getEngineSpeedFilter() { return filterLookup(ENGINE_SPEED); }
@@ -75,6 +76,11 @@ public class TelemetryFilter {
         return allFieldFilters.stream()
                 .filter(f -> f.getFieldName().equals(fieldName))
                 .findFirst().orElse(null);
+    }
+
+    public void setDateTimeFilter(DateTimeFilter dateTimeFilter) {
+        dateTimeFilter.setFieldName(DATE_TIME);
+        allFieldFilters.add(dateTimeFilter);
     }
 
     public void setSerialNumberFilter(StringFilter stringFilter) {

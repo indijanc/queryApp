@@ -1,7 +1,5 @@
 package com.indijanc.queryApp.data.model;
 
-import java.time.LocalDateTime;
-
 public class FieldName {
     public static final String DATE_TIME = "dateTime";
     public static final String SERIAL_NUMBER = "serialNumber";

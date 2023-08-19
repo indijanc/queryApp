@@ -9,6 +9,5 @@ import java.util.List;
 
 
 public interface VehicleTelemetryRepository extends JpaRepository<VehicleTelemetry, Long>, JpaSpecificationExecutor<VehicleTelemetry> {
-    List<VehicleTelemetry> findBySerialNumber(String serialNumber);
     List<VehicleTelemetry> findAll(Specification<VehicleTelemetry> spec);
 }

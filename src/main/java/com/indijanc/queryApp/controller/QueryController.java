@@ -26,14 +26,6 @@ public class QueryController {
     VehicleTelemetryRepository vehicleTelemetryRepository;
 
     @QueryMapping
-    public List<VehicleTelemetry> telemetryBySerialNumber(@Argument String serialNumber) {
-        log.info("Query by serial number: {}", serialNumber);
-        List<VehicleTelemetry> retList = vehicleTelemetryRepository.findBySerialNumber(serialNumber);
-        log.info("returning {} entries", retList.size());
-        return retList;
-    }
-
-    @QueryMapping
     public List<VehicleTelemetry> telemetry(@Argument TelemetryFilter filter) {
         Specification<VehicleTelemetry> spec = Specification.where(null);
 
@@ -50,7 +42,7 @@ public class QueryController {
      * Method is used to translate the input filter definition into a specification for data retrieval
      *
      * @param filter Collection of filters from the GraphQL query
-     * @return Specification<VehicleTelemetrz> specification for data retrieval
+     * @return Specification<VehicleTelemetry> specification for data retrieval
      */
     // TODO: More investigation needed to possibly simplify this or make it more elegant with QueryDsl
     // TODO: Possibly push this to a service class
@@ -102,6 +94,22 @@ public class QueryController {
                     spec = spec.and(VehicleTelemetrySpecification.floatKeyLt(
                             floatFilter.getFieldName(),
                             floatFilter.getLt()
+                    ));
+                }
+            }
+
+            else if (fieldFilter instanceof DateTimeFilter) {
+                DateTimeFilter dateTimeFilter = (DateTimeFilter) fieldFilter;
+                if (dateTimeFilter.getGte() != null) {
+                    spec = spec.and(VehicleTelemetrySpecification.dateTimeKeyGte(
+                            dateTimeFilter.getFieldName(),
+                            dateTimeFilter.getGte()
+                    ));
+                }
+                if (dateTimeFilter.getLt() != null) {
+                    spec = spec.and(VehicleTelemetrySpecification.dateTimeKeyLt(
+                            dateTimeFilter.getFieldName(),
+                            dateTimeFilter.getLt()
                     ));
                 }
             }

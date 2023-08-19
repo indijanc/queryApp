@@ -18,8 +18,6 @@ import static com.indijanc.queryApp.data.model.FieldName.SERIAL_NUMBER;
 @Table(uniqueConstraints = {@UniqueConstraint(name = "dateTimeAndSerial", columnNames = {DATE_TIME, SERIAL_NUMBER})})
 public class VehicleTelemetry {
 
-    public static final String DATETIME_FORMAT = "MMM d, yyyy, h:mm:ss a";
-
     @Id
     @GeneratedValue
     private Long id;
