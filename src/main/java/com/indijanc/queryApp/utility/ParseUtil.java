@@ -1,17 +1,11 @@
 package com.indijanc.queryApp.utility;
 
-import com.indijanc.queryApp.controller.QueryController;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ParseUtil {
-
-    private static final Logger log = LoggerFactory.getLogger(ParseUtil.class);
 
     private static final List<String> dateTimeFormats = List.of(
             "MMM d, yyyy, h:mm:ss a",
