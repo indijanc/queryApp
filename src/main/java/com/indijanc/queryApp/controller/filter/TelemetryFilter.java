@@ -148,9 +148,9 @@ public class TelemetryFilter {
         allFieldFilters.add(floatFilter);
     }
 
-    public void setChopperFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(CHOPPER);
-        allFieldFilters.add(stringFilter);
+    public void setChopperFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(CHOPPER);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setTankLevelFilter(FloatFilter floatFilter) {
@@ -163,9 +163,9 @@ public class TelemetryFilter {
         allFieldFilters.add(intFilter);
     }
 
-    public void setFrontAttachmentFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(FRONT_ATTACHMENT);
-        allFieldFilters.add(stringFilter);
+    public void setFrontAttachmentFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(FRONT_ATTACHMENT);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setPartialWidthsMaxCountFilter(IntFilter intFilter) {
@@ -178,19 +178,19 @@ public class TelemetryFilter {
         allFieldFilters.add(floatFilter);
     }
 
-    public void setWorkingPositionFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(WORKING_POSITION);
-        allFieldFilters.add(stringFilter);
+    public void setWorkingPositionFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(WORKING_POSITION);
+        allFieldFilters.add(booleanFilter);
     }
 
-    public void setGrainTankUnloadingFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(GRAIN_TANK_UNLOADING);
-        allFieldFilters.add(stringFilter);
+    public void setGrainTankUnloadingFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(GRAIN_TANK_UNLOADING);
+        allFieldFilters.add(booleanFilter);
     }
 
-    public void setMainDriveStatusFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(MAIN_DRIVE_STATUS);
-        allFieldFilters.add(stringFilter);
+    public void setMainDriveStatusFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(MAIN_DRIVE_STATUS);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setConcavePosFilter(IntFilter intFilter) {
@@ -208,14 +208,14 @@ public class TelemetryFilter {
         allFieldFilters.add(intFilter);
     }
 
-    public void setGrainTank70Filter(StringFilter stringFilter) {
-        stringFilter.setFieldName(GRAIN_TANK_70);
-        allFieldFilters.add(stringFilter);
+    public void setGrainTank70Filter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(GRAIN_TANK_70);
+        allFieldFilters.add(booleanFilter);
     }
 
-    public void setGrainTank100Filter(StringFilter stringFilter) {
-        stringFilter.setFieldName(GRAIN_TANK_100);
-        allFieldFilters.add(stringFilter);
+    public void setGrainTank100Filter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(GRAIN_TANK_100);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setGrainMoistureContentFilter(FloatFilter floatFilter) {
@@ -243,9 +243,9 @@ public class TelemetryFilter {
         allFieldFilters.add(floatFilter);
     }
 
-    public void setYieldMeasurementFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(YIELD_MEASUREMENT);
-        allFieldFilters.add(stringFilter);
+    public void setYieldMeasurementFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(YIELD_MEASUREMENT);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setReturnsAugerMeasurementFilter(FloatFilter floatFilter) {
@@ -253,9 +253,9 @@ public class TelemetryFilter {
         allFieldFilters.add(floatFilter);
     }
 
-    public void setMoistureMeasurementFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(MOISTURE_MEASUREMENT);
-        allFieldFilters.add(stringFilter);
+    public void setMoistureMeasurementFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(MOISTURE_MEASUREMENT);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setTypeOfCropFilter(StringFilter stringFilter) {
@@ -268,9 +268,9 @@ public class TelemetryFilter {
         allFieldFilters.add(floatFilter);
     }
 
-    public void setAutoPilotStatusFilter(StringFilter stringFilter) {
-        stringFilter.setFieldName(AUTO_PILOT_STATUS);
-        allFieldFilters.add(stringFilter);
+    public void setAutoPilotStatusFilter(BooleanFilter booleanFilter) {
+        booleanFilter.setFieldName(AUTO_PILOT_STATUS);
+        allFieldFilters.add(booleanFilter);
     }
 
     public void setCruisePilotStatusFilter(StringFilter stringFilter) {

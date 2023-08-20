@@ -49,4 +49,8 @@ public class VehicleTelemetrySpecification {
     public static Specification<VehicleTelemetry> dateTimeKeyLt(String key, LocalDateTime value) {
         return ((root, query, builder) -> builder.lessThan(root.<LocalDateTime>get(key), value));
     }
+
+    public static Specification<VehicleTelemetry> booleanKeyEquals(String key, Boolean value) {
+        return ((root, query, builder) -> builder.equal(root.get(key), value));
+    }
 }

@@ -71,31 +71,31 @@ public class CsvVehicleTelemetryInsertionService {
             else if (header.toLowerCase().contains("rotor / straw walker speed")) { builder.strawWalkerSpeed(parseIntOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("separation losses")) { builder.separationLosses(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("sieve losses")) { builder.sieveLosses(parseDoubleOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("chopper")) { builder.chopper(record.get(header)); }
+            else if (header.toLowerCase().contains("chopper")) { builder.chopper(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("diesel tank level")) { builder.tankLevel(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("no. of partial widths")) { builder.partialWidthsCount(parseIntOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("front attachment")) { builder.frontAttachment(record.get(header)); }
+            else if (header.toLowerCase().contains("front attachment")) { builder.frontAttachment(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("max. no. of partial widths")) { builder.partialWidthsMaxCount(parseIntOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("feed rake speed")) { builder.feedRakeSpeed(parseDoubleOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("working position")) { builder.workingPosition(record.get(header)); }
-            else if (header.toLowerCase().contains("grain tank unloading")) { builder.grainTankUnloading(record.get(header)); }
-            else if (header.toLowerCase().contains("main drive status")) { builder.mainDriveStatus(record.get(header)); }
+            else if (header.toLowerCase().contains("working position")) { builder.workingPosition(parseBoolean(record.get(header))); }
+            else if (header.toLowerCase().contains("grain tank unloading")) { builder.grainTankUnloading(parseBoolean(record.get(header))); }
+            else if (header.toLowerCase().contains("main drive status")) { builder.mainDriveStatus(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("concave position")) { builder.concavePos(parseIntOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("upper sieve position")) { builder.upperSievePos(parseIntOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("lower sieve position")) { builder.lowerSievePos(parseIntOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("grain tank 70")) { builder.grainTank70(record.get(header)); }
-            else if (header.toLowerCase().contains("grain tank 100")) { builder.grainTank100(record.get(header)); }
+            else if (header.toLowerCase().contains("grain tank 70")) { builder.grainTank70(parseBoolean(record.get(header))); }
+            else if (header.toLowerCase().contains("grain tank 100")) { builder.grainTank100(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("grain moisture content")) { builder.grainMoistureContent(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("throughput")) { builder.throughput(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("radial spreader speed")) { builder.radialSpreaderSpeed(record.get(header)); }
             else if (header.toLowerCase().contains("grain in returns")) { builder.grainInReturns(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("channel position")) { builder.channelPos(parseDoubleOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("yield measurement")) { builder.yieldMeasurement(record.get(header)); }
+            else if (header.toLowerCase().contains("yield measurement")) { builder.yieldMeasurement(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("returns auger measurement")) { builder.returnsAugerMeasurement(parseDoubleOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("moisture measurement")) { builder.moistureMeasurement(record.get(header)); }
+            else if (header.toLowerCase().contains("moisture measurement")) { builder.moistureMeasurement(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("type of crop")) { builder.typeOfCrop(record.get(header)); }
             else if (header.toLowerCase().contains("specific crop weight")) { builder.specificCropWeight(parseDoubleOrNull(record.get(header))); }
-            else if (header.toLowerCase().contains("auto pilot status")) { builder.autoPilotStatus(record.get(header)); }
+            else if (header.toLowerCase().contains("auto pilot status")) { builder.autoPilotStatus(parseBoolean(record.get(header))); }
             else if (header.toLowerCase().contains("cruise pilot status")) { builder.cruisePilotStatus(record.get(header)); }
             else if (header.toLowerCase().contains("rate of work")) { builder.rateOfWork(parseDoubleOrNull(record.get(header))); }
             else if (header.toLowerCase().contains("yield")) { builder.yield(parseDoubleOrNull(record.get(header))); }

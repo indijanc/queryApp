@@ -18,31 +18,31 @@ type Telemetry {
     strawWalkerSpeed: Int
     separationLosses: Float
     sieveLosses: Float
-    chopper: String
+    chopper: Boolean
     tankLevel: Float
     partialWidthsCount: Int
-    frontAttachment: String
+    frontAttachment: Boolean
     partialWidthsMaxCount: Int
     feedRakeSpeed: Float
-    workingPosition: String
-    grainTankUnloading: String
-    mainDriveStatus: String
+    workingPosition: Boolean
+    grainTankUnloading: Boolean
+    mainDriveStatus: Boolean
     concavePos: Int
     upperSievePos: Int
     lowerSievePos: Int
-    grainTank70: String
-    grainTank100: String
+    grainTank70: Boolean
+    grainTank100: Boolean
     grainMoistureContent: Float
     throughput: Float
     radialSpreaderSpeed: String
     grainInReturns: Float
     channelPos: Float
-    yieldMeasurement: String
+    yieldMeasurement: Boolean
     returnsAugerMeasurement: Float
-    moistureMeasurement: String
+    moistureMeasurement: Boolean
     typeOfCrop: String
     specificCropWeight: Float
-    autoPilotStatus: String
+    autoPilotStatus: Boolean
     cruisePilotStatus: String
     rateOfWork: Float
     yield: Float
@@ -77,31 +77,31 @@ input TelemetryFilter {
     strawWalkerSpeedFilter: IntFilter
     separationLossesFilter: FloatFilter
     sieveLossesFilter: FloatFilter
-    chopperFilter: StringFilter
+    chopperFilter: BooleanFilter
     tankLevelFilter: FloatFilter
     partialWidthsCountFilter: IntFilter
-    frontAttachmentFilter: StringFilter
+    frontAttachmentFilter: BooleanFilter
     partialWidthsMaxCountFilter: IntFilter
     feedRakeSpeedFilter: FloatFilter
-    workingPositionFilter: StringFilter
-    grainTankUnloadingFilter: StringFilter
-    mainDriveStatusFilter: StringFilter
+    workingPositionFilter: BooleanFilter
+    grainTankUnloadingFilter: BooleanFilter
+    mainDriveStatusFilter: BooleanFilter
     concavePosFilter: IntFilter
     upperSievePosFilter: IntFilter
     lowerSievePosFilter: IntFilter
-    grainTank70Filter: StringFilter
-    grainTank100Filter: StringFilter
+    grainTank70Filter: BooleanFilter
+    grainTank100Filter: BooleanFilter
     grainMoistureContentFilter: FloatFilter
     throughputFilter: FloatFilter
     radialSpreaderSpeedFilter: StringFilter
     grainInReturnsFilter: FloatFilter
     channelPosFilter: FloatFilter
-    yieldMeasurementFilter: StringFilter
+    yieldMeasurementFilter: BooleanFilter
     returnsAugerMeasurementFilter: FloatFilter
-    moistureMeasurementFilter: StringFilter
+    moistureMeasurementFilter: BooleanFilter
     typeOfCropFilter: StringFilter
     specificCropWeightFilter: FloatFilter
-    autoPilotStatusFilter: StringFilter
+    autoPilotStatusFilter: BooleanFilter
     cruisePilotStatusFilter: StringFilter
     rateOfWorkFilter: FloatFilter
     yieldFilter: FloatFilter
@@ -119,6 +119,15 @@ input TelemetryFilter {
     transverseDifferentialLockStatusFilter: IntFilter
     allWheelDriveStatusFilter: StringFilter
     actualStatusOfCreeperFilter: StringFilter
+}
+
+"Filter for DateTime fields"
+input DateTimeFilter {
+    "Greater than or equal"
+    gte: String
+
+    "Less than"
+    lt: String
 }
 
 "Filter for String fields"
@@ -148,11 +157,8 @@ input IntFilter {
     lt: Int
 }
 
-"Filter for DateTime fields"
-input DateTimeFilter {
-    "Greater than or equal"
-    gte: String
-
-    "Less than"
-    lt: String
+"Filter for Boolean fields"
+input BooleanFilter {
+    "Filter for values that are equal to the boolean value"
+    equals: Boolean
 }

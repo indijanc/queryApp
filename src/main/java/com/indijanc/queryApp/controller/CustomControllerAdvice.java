@@ -22,11 +22,11 @@ public class CustomControllerAdvice {
         return ResponseEntity.badRequest().body(genericResponse);
     }
 
-    @ExceptionHandler(FileNotFoundException.class)
-    public ResponseEntity<Object> handleFileUploadError(FileNotFoundException ex) {
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity<Object> handleFileUploadError(NumberFormatException ex) {
         GenericResponse genericResponse = GenericResponse.builder()
                 .status(HttpStatus.BAD_REQUEST.value())
-                .message("Invalid file")
+                .message("Could not insert data")
                 .error(ex.getMessage())
                 .build();
 

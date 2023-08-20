@@ -114,6 +114,16 @@ public class QueryController {
                     ));
                 }
             }
+
+            else if (fieldFilter instanceof BooleanFilter) {
+                BooleanFilter booleanFilter = (BooleanFilter) fieldFilter;
+                if (booleanFilter.getEquals() != null) {
+                    spec = spec.and(VehicleTelemetrySpecification.booleanKeyEquals(
+                            booleanFilter.getFieldName(),
+                            booleanFilter.getEquals()
+                    ));
+                }
+            }
         }
 
         return spec;

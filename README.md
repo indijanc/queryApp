@@ -152,9 +152,7 @@ Try other queries using the console autocomplete features. Results are always or
 
 A list of tasks, refactoring and improvements planned to implement.
 
-- Investigate the provided data, determine boolean values
 - Error handling for GraphQL errors
-- Investigate and possibly improve GraphQL to Object mapping/binding
 - Tests!
 - Change to a proper time-series database, seems like it would be the best fit
 - Improve/refactor dynamic data fetching mechanism - investigate QueryDsl
