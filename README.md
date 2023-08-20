@@ -152,7 +152,7 @@ Try other queries using the console autocomplete features. Results are always or
 
 A list of tasks, refactoring and improvements planned to implement.
 
-- Error handling for GraphQL errors
 - Tests!
 - Change to a proper time-series database, seems like it would be the best fit
 - Improve/refactor dynamic data fetching mechanism - investigate QueryDsl
+- ~~Error handling for GraphQL errors~~ Leave GraphQL errors as is, conforms to the GraphQL specification
