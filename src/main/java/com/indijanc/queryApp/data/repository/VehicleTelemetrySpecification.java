@@ -26,13 +26,14 @@ public class VehicleTelemetrySpecification {
         return (root, query, builder) -> builder.like(root.get(key), value);
     }
 
-    public static Specification<VehicleTelemetry> floatKeyGte(String key, float value) {
+    public static Specification<VehicleTelemetry> doubleKeyGte(String key, Double value) {
         return (root, query, builder) -> builder.ge(root.get(key), value);
     }
 
-    public static Specification<VehicleTelemetry> floatKeyLt(String key, float value) {
+    public static Specification<VehicleTelemetry> doubleKeyLt(String key, Double value) {
         return (root, query, builder) -> builder.lt(root.get(key), value);
     }
+
     public static Specification<VehicleTelemetry> intKeyGte(String key, int value) {
         return (root, query, builder) -> builder.ge(root.get(key), value);
     }

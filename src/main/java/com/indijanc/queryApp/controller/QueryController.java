@@ -86,13 +86,13 @@ public class QueryController {
             else if (fieldFilter instanceof FloatFilter) {
                 FloatFilter floatFilter = (FloatFilter) fieldFilter;
                 if (floatFilter.getGte() != null) {
-                    spec = spec.and(VehicleTelemetrySpecification.floatKeyGte(
+                    spec = spec.and(VehicleTelemetrySpecification.doubleKeyGte(
                             floatFilter.getFieldName(),
                             floatFilter.getGte()
                     ));
                 }
                 if (floatFilter.getLt() != null) {
-                    spec = spec.and(VehicleTelemetrySpecification.floatKeyLt(
+                    spec = spec.and(VehicleTelemetrySpecification.doubleKeyLt(
                             floatFilter.getFieldName(),
                             floatFilter.getLt()
                     ));

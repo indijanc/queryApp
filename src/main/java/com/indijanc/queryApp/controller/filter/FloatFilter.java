@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FloatFilter extends FieldFilter {
-    private Float gte;
-    private Float lt;
+    private Double gte;
+    private Double lt;
 }

@@ -16,9 +16,9 @@ public class ParseUtil {
             "YYY-MM-DDThh:mm:ss.sss"
     );
 
-    public static Float parseFloatOrNull(String inputStr) {
+    public static Double parseDoubleOrNull(String inputStr) {
         try {
-            return Float.parseFloat(inputStr);
+            return Double.valueOf(inputStr);
         }
         catch (NumberFormatException e) {
             return null;
@@ -27,7 +27,7 @@ public class ParseUtil {
 
     public static Integer parseIntOrNull(String inputStr) {
         try {
-            return Integer.parseInt(inputStr);
+            return Integer.valueOf(inputStr);
         }
         catch (NumberFormatException e) {
             return null;
