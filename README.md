@@ -44,7 +44,7 @@ You can either build and run the app from source:
 
 Or run the app using the pre-built and packaged JAR file available under Releases.
 
-After initialization, the application will start listening on port 8080, accessible over HTTP. Use the following steps to test it's features:
+After initialization, the application will start listening on localhost on port 8080, accessible over HTTP. Use the following steps to test it's features:
 1. Upload data files. The files must be in CSV format with correct structure. Currenty supports combine and tractor telemetry data format. The upload endpoint is available at `/telemetry/upload` - the data files can be easily uploaded with the curl command `curl -F file=@<path to CSV file> http://localhost:8080/telemetry/upload`
 2. Check the data. You can use the credentials in [application.yaml](/src/main/resources/application.yaml) to access the [DB console](http://localhost:8080/h2-console) and check the stored telemetry data.
 3. Run some queries. A good way to run queries against the provided endpoint `/graphql` is to use the Browser based [GraphiQL UI](http://localhost:8080/graphiql)
@@ -150,7 +150,7 @@ Try other queries using the console autocomplete features. Results are always or
 
 ## Todo List
 
-A list of tasks, refactoring and improvements planned to implement.
+A list of tasks, refactoring and improvements for future work.
 
 - Change to a proper time-series database, seems like it would be the best fit
 - Improve/refactor dynamic data fetching mechanism - investigate QueryDsl
