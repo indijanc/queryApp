@@ -30,15 +30,4 @@ public class CustomControllerAdvice {
 
         return ResponseEntity.badRequest().body(genericResponse);
     }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleException(Exception ex) {
-        GenericResponse genericResponse = GenericResponse.builder()
-                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                .message("An error occurred")
-                .error(ex.getMessage())
-                .build();
-
-        return ResponseEntity.internalServerError().body(genericResponse);
-    }
 }
