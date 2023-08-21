@@ -146,13 +146,12 @@ Get all entries for a specific vehicle when engine was running at 1975 rpm
 }
 ```
 
-Try other queries using the console autocomplete features. Results are always ordered by time in a descendint manner.
+Try other queries using the console autocomplete features. Results are always ordered by date/time in a descendant manner.
 
 ## Todo List
 
 A list of tasks, refactoring and improvements planned to implement.
 
-- Tests!
 - Change to a proper time-series database, seems like it would be the best fit
 - Improve/refactor dynamic data fetching mechanism - investigate QueryDsl
 - ~~Error handling for GraphQL errors~~ Leave GraphQL errors as is, conforms to the GraphQL specification
