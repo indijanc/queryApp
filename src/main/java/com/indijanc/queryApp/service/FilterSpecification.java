@@ -14,6 +14,7 @@ public class FilterSpecification {
 
     /**
      * Method is used to translate the input filter definition into a specification for data retrieval
+     * Notice that it always orders by date/time
      *
      * @param filter Collection of filters from the GraphQL query
      * @return Specification<VehicleTelemetry> specification for data retrieval

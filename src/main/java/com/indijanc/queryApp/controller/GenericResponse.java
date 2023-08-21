@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 /**
- * Generic response used for controller ok and error statuses
+ * Generic response used for telemetry upload controller ok and error statuses
  */
 @Getter
 @Builder
